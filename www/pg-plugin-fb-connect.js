@@ -35,8 +35,5 @@ PG.FB = {
 		} catch (e) {
 			alert(e);
 		}
-    },
-    isAppInstalled: function(cb) {
-        
     }
 };
