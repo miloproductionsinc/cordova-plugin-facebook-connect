@@ -746,7 +746,13 @@ public class ConnectPlugin extends CordovaPlugin {
 
     // Simple active session check
     private boolean hasAccessToken() {
-        return AccessToken.getCurrentAccessToken() != null;
+        AccessToken token = AccessToken.getCurrentAccessToken();
+
+		if (token == null) {
+			return false;
+		}
+
+		return !token.isExpired();
     }
 
     private void handleError(FacebookException exception, CallbackContext context) {
