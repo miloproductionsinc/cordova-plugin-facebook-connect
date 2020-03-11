@@ -49,6 +49,7 @@ If you are looking to test the plugin, would like to reproduce a bug or build is
 
 ## Compatibility
 
+  * Android minSDK >= 15
   * Cordova >= 5.0.0
   * cordova-android >= 4.0
   * cordova-ios >= 3.8
@@ -59,11 +60,7 @@ If you are looking to test the plugin, would like to reproduce a bug or build is
 
 This plugin use the SDKs provided by Facebook. More information about these in their documentation for [iOS](https://developers.facebook.com/docs/ios/) or [Android](https://developers.facebook.com/docs/android/)
 
-### Facebook SDK version
-
-As of v3.0.0, this plugin will always be released for iOS and for Android with a synchronized usage of the Facebook SDKs
-
-For example: v3.0.0 include the Facebook SDK iOS v4.36.0 and reference per default the Facebook SDK Android v4.36.0 too
+Facebook SDK version: 6.2+
 
 ### Graph API version
 
@@ -144,7 +141,6 @@ Share Dialog:
 
 The default dialog mode is [`FBSDKShareDialogModeAutomatic`](https://developers.facebook.com/docs/reference/ios/current/constants/FBSDKShareDialogMode/). You can share that by adding a specific dialog mode parameter. The available share dialog modes are: `share_sheet`, `share_feedBrowser`, `share_native` and `share_feedWeb`. [Read more about share dialog modes](https://developers.facebook.com/docs/reference/ios/current/constants/FBSDKShareDialogMode/)
 
-`caption`, `description` and `picture` were deprecated in Facebok API [v2.9](https://developers.facebook.com/docs/graph-api/changelog/version2.9#gapi-deprecate) and therefore not supported anymore on iOS 
 
 Game request:
 
@@ -166,30 +162,6 @@ Send Dialog:
 		description: "The site I told you about",
 		picture: "http://example.com/image.png"
 	}
-	
-Share dialog - Open Graph Story: (currently only fully available on Android, iOS currently does not support action_properties)
-
-	{
-		var obj = {};
-	
-    	obj['og:type'] = 'objectname';
-    	obj['og:title'] = 'Some title';
-    	obj['og:url'] = 'https://en.wikipedia.org/wiki/Main_Page';
-    	obj['og:description'] = 'Some description.';
-
-    	var ap = {};
-    	
-    	ap['expires_in'] = 3600;
-    	
-    	var options = {
-    		method: 'share_open_graph', // Required
-        	action: 'actionname', // Required
-        	action_properties: JSON.stringify(ap), // Optional
-        	object: JSON.stringify(obj) // Required
-    	};
-	}
-	
-In case you want to use custom actions/objects, just prepend the app namespace to the name (E.g: ` obj['og:type'] = 'appnamespace:objectname' `, `action: 'appnamespace:actionname'`. The namespace of a Facebook app is found on the Settings page. 
 
 
 For options information see: [Facebook share dialog documentation](https://developers.facebook.com/docs/sharing/reference/share-dialog) [Facebook send dialog documentation](https://developers.facebook.com/docs/sharing/reference/send-dialog)

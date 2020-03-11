@@ -425,68 +425,6 @@ public class ConnectPlugin extends CordovaPlugin {
             cordova.setActivityResultCallback(this);
             shareDialog.show(content);
 
-        } else if (method.equalsIgnoreCase("share_open_graph")) {
-            if (!ShareDialog.canShow(ShareOpenGraphContent.class)) {
-                callbackContext.error("Cannot show dialog");
-                return;
-            }
-            showDialogContext = callbackContext;
-            PluginResult pr = new PluginResult(PluginResult.Status.NO_RESULT);
-            pr.setKeepCallback(true);
-            showDialogContext.sendPluginResult(pr);
-
-            if (!params.containsKey("action")) {
-                callbackContext.error("Missing required parameter 'action'");
-            }
-
-            if (!params.containsKey("object")) {
-                callbackContext.error("Missing required parameter 'object'.");
-            }
-
-            ShareOpenGraphObject.Builder objectBuilder = new ShareOpenGraphObject.Builder();
-            JSONObject jObject = new JSONObject(params.get("object"));
-
-            Iterator<?> objectKeys = jObject.keys();
-
-            String objectType = "";
-
-            while ( objectKeys.hasNext() ) {
-                String key = (String)objectKeys.next();
-                String value = jObject.getString(key);
-
-                objectBuilder.putString(key, value);
-
-                if (key.equals("og:type"))
-                    objectType = value;
-            }
-
-            if (objectType.equals("")) {
-                callbackContext.error("Missing required object parameter 'og:type'");
-            }
-
-            ShareOpenGraphAction.Builder actionBuilder = new ShareOpenGraphAction.Builder();
-            actionBuilder.setActionType(params.get("action"));
-
-            if (params.containsKey("action_properties")) {
-                JSONObject jActionProperties = new JSONObject(params.get("action_properties"));
-
-                Iterator<?> actionKeys = jActionProperties.keys();
-
-                while ( actionKeys.hasNext() ) {
-                    String actionKey = (String)actionKeys.next();
-
-                    actionBuilder.putString(actionKey, jActionProperties.getString(actionKey));
-                }
-            }
-
-            actionBuilder.putObject(objectType, objectBuilder.build());
-
-            ShareOpenGraphContent.Builder content = new ShareOpenGraphContent.Builder()
-                    .setPreviewPropertyName(objectType)
-                    .setAction(actionBuilder.build());
-
-            shareDialog.show(content.build());
-
         } else if (method.equalsIgnoreCase("send")) {
             if (!MessageDialog.canShow(ShareLinkContent.class)) {
                 callbackContext.error("Cannot show dialog");
