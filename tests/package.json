@@ -1,0 +1,14 @@
+{
+  "name": "cordova-plugin-facebook-connect-tests",
+  "version": "5.0.0-dev",
+  "description": "",
+  "cordova": {
+    "id": "cordova-plugin-facebook-connect-tests",
+    "platforms": [
+      "android",
+      "ios",
+      "browser"
+    ]
+  },
+  "license": "Apache-2.0"
+}

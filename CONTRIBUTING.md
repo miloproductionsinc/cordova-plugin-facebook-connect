@@ -1,4 +1,4 @@
-# Contributing to PhoneGap Facebook Plugin
+# Contributing to the Cordova Facebook Connect Plugin
 
 :+1::tada: First off, thanks for taking the time to contribute! :tada::+1:
 
@@ -29,4 +29,15 @@ Can you solve the problem yourself? If so see the next section on Pull Requests 
 - Include screenshots and animated GIFs in your pull request whenever possible.
 - Try to follow the [JavaScript](https://github.com/Wizcorp/javascript-styleguide/blob/master/README.md), [Objective-C](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml) or [Java](https://google-styleguide.googlecode.com/svn/trunk/javaguide.html) style guides. Although these are just guides, please at least support continuety (that means **using 4 spaces please**).
 - **Send your pull request to the develop branch.**
-- If you can, provide sample testing code.
+- If you can, provide sample testing code.  (Or an actual test!)
+
+## Running Tests
+
+In your cordova project (or a new project):
+- `cordova plugin add cordova-plugin-test-framework`
+- `cordova plugin add --link <rel path to cordova-plugin-facebook-connect> --variable APP_ID="<real app id>" --variable APP_NAME="My App"`
+  - `--link` creates a link between the objc/java files so that you can modify them directly from your project
+  - Windows may require admin permission to use `--link`
+  - This does **not** link any js files
+- `cordova plugin add <rel path to cordova-plugin-facebook-connect>/tests`
+- in *config.xml* set `<content src="cdvtests/index.html" />`
