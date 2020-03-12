@@ -1,5 +1,7 @@
 
 dependencies {
     implementation("com.facebook.android:facebook-android-sdk:6.2.0") {
+        exclude group: 'com.android.support', module: 'support-media-compat'
+        exclude group: 'com.android.support', module: 'support-compat'
     }
 }
