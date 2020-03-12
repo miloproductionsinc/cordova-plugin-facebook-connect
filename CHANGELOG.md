@@ -1,3 +1,26 @@
+
+<a name="7.0.0"></a>
+# [7.0.0](https://github.com/miloproductions/cordova-plugin-facebook-connect/releases/tag/v7.0.0)
+
+## Features
+
+* **iOS & Android:** Update the Facebook SDK to 6.2+ (Facebook SDK changelog: [Android](https://github.com/facebook/facebook-android-sdk/blob/master/CHANGELOG.md), [iOS](https://github.com/facebook/facebook-objc-sdk/blob/master/CHANGELOG.md))
+
+## Breaking change
+* Facebook SDK 6 has removed support for the **share_open_graph** share method
+  * Pages that are being shared should include open graph meta tags in their html.
+
+## Docs
+* **Tests:** Added instructions for running the plugin's test suite in [CONTRIBUTING](/CONTRIBUTING.md#running-tests)
+
+## Changes for Devs
+* Changed plugin name to **cordova-plugin-facebook-connect**
+* Removed committed libraries from repo history resulting in:
+  * repo size decreasing from 500 MB to less than 1 MB
+  * previous version tags have been lost 
+  * older versions of the plugin will no longer work
+    * versions from 2019 are expected to work (maybe 2018 as well)
+
 <a name="6.3.0"></a>
 # [6.3.0](https://github.com/jeduan/cordova-plugin-facebook4/releases/tag/v6.3.0)
 

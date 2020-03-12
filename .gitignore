@@ -32,3 +32,6 @@ proguard/
 *.iml
 /nbproject/private/
 nbproject
+/.project
+/.settings
+/.vscode
