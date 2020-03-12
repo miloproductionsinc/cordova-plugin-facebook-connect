@@ -28,6 +28,14 @@
         <engine name="cordova-ios" version=">=3.5.0" />
     </engines>
 
+    <config-file target="config.xml" parent="/*">
+        <access origin="https://m.facebook.com" />
+        <access origin="https://graph.facebook.com" />
+        <access origin="https://api.facebook.com" />
+        <access origin="https://*.fbcdn.net" />
+        <access origin="https://*.akamaihd.net" />
+    </config-file>
+
     <!-- android -->
     <platform name="android">
         <js-module src="www/facebook-native.js" name="FacebookConnectPlugin">
@@ -39,11 +47,6 @@
                 <param name="android-package" value="org.apache.cordova.facebook.ConnectPlugin" />
                 <param name="onload" value="true" />
             </feature>
-            <access origin="https://m.facebook.com" />
-            <access origin="https://graph.facebook.com" />
-            <access origin="https://api.facebook.com" />
-            <access origin="https://*.fbcdn.net" />
-            <access origin="https://*.akamaihd.net" />
             <preference name="android-minSdkVersion" value="15" />
         </config-file>
 
@@ -88,11 +91,6 @@
                 <param name="onload" value="true" />
             </feature>
             <plugin name="FacebookConnectPlugin" value="FacebookConnectPlugin"/>
-            <access origin="https://m.facebook.com" />
-            <access origin="https://graph.facebook.com" />
-            <access origin="https://api.facebook.com" />
-            <access origin="https://*.fbcdn.net" />
-            <access origin="https://*.akamaihd.net" />
         </config-file>
 
         <header-file src="src/ios/FacebookConnectPlugin.h" />
@@ -184,12 +182,7 @@
                 <param name="onload" value="true" />
             </feature>
             <plugin name="FacebookConnectPlugin" value="FacebookConnectPlugin"/>
-            <access origin="https://m.facebook.com" />
             <access origin="https://connect.facebook.net" />
-            <access origin="https://graph.facebook.com" />
-            <access origin="https://api.facebook.com" />
-            <access origin="https://*.fbcdn.net" />
-            <access origin="https://*.akamaihd.net" />
         </config-file>
     </platform>
 
